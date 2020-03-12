@@ -3,9 +3,11 @@ package ru.ilslv.currencyconverter.di
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import ru.ilslv.currencyconverter.data.NetworkHandler
 import ru.ilslv.currencyconverter.data.remote.ServerApi
 import java.util.concurrent.TimeUnit
 
@@ -17,6 +19,7 @@ val networkModule = module {
         provideRetrofit(get())
     }
     single { provideServerApi(get()) }
+    single { NetworkHandler(androidContext()) }
 }
 
 fun provideOkHttpClient(): OkHttpClient {
