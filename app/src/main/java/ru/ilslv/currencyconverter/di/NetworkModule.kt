@@ -6,7 +6,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import ru.ilslv.currencyconverter.data.ServerApi
+import ru.ilslv.currencyconverter.data.remote.ServerApi
 import java.util.concurrent.TimeUnit
 
 val networkModule = module {

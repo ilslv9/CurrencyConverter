@@ -1,7 +1,9 @@
-package ru.ilslv.currencyconverter.domain
+package ru.ilslv.currencyconverter.domain.usecase
 
-import ru.ilslv.currencyconverter.data.Either
-import ru.ilslv.currencyconverter.data.Failure
+import ru.ilslv.currencyconverter.domain.usecase.base.BaseUseCase
+import ru.ilslv.currencyconverter.domain.base.Either
+import ru.ilslv.currencyconverter.domain.base.Failure
+import ru.ilslv.currencyconverter.domain.repository.CurrencyRepository
 
 class ConvertCurrencyUseCase(private val currencyRepository: CurrencyRepository) :
     BaseUseCase<Double, ConvertCurrencyUseCase.ConvertCurrencyParams>() {

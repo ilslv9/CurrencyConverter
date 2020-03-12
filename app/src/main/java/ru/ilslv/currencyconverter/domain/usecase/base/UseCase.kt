@@ -1,10 +1,10 @@
-package ru.ilslv.currencyconverter.domain
+package ru.ilslv.currencyconverter.domain.usecase.base
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import ru.ilslv.currencyconverter.data.Either
-import ru.ilslv.currencyconverter.data.Failure
+import ru.ilslv.currencyconverter.domain.base.Either
+import ru.ilslv.currencyconverter.domain.base.Failure
 
 abstract class BaseUseCase<out Type, in Params> where Type : Any {
 

@@ -1,4 +1,4 @@
-package ru.ilslv.currencyconverter.data
+package ru.ilslv.currencyconverter.data.remote
 
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET

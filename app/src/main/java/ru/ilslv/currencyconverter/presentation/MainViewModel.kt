@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import ru.ilslv.currencyconverter.data.Failure
-import ru.ilslv.currencyconverter.domain.ConvertCurrencyUseCase
+import ru.ilslv.currencyconverter.domain.base.Failure
+import ru.ilslv.currencyconverter.domain.usecase.ConvertCurrencyUseCase
 
 class MainViewModel(private val convertCurrencyUseCase: ConvertCurrencyUseCase) : ViewModel() {
 

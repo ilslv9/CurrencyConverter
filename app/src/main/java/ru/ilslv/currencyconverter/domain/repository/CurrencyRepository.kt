@@ -1,4 +1,4 @@
-package ru.ilslv.currencyconverter.domain
+package ru.ilslv.currencyconverter.domain.repository
 
 import ru.ilslv.currencyconverter.data.model.CurrencyRatesResponse
 
