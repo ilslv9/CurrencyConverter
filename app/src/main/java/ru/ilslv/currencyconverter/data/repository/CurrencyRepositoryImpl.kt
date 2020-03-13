@@ -13,21 +13,20 @@ class CurrencyRepositoryImpl(
     private val networkHandler: NetworkHandler,
     private val serverApi: ServerApi,
     private val dao: CurrencyRatesDao
-) :
-    CurrencyRepository {
+) : CurrencyRepository {
 
     override suspend fun loadCurrencyRates(baseCurrencyKey: String): CurrencyRatesModel? {
         return when (networkHandler.isConnected) {
             true -> {
                 val rates =
                     serverApi.loadCurrencyRatesAsync(baseCurrencyKey).await().mapToDomainModel()
-                dao.insertCurrencyRate(
-                    CurrencyRateEntity(
-                        rates.baseCurrency,
-                        rates.date,
-                        rates.rates
+                    dao.insertCurrencyRate(
+                        CurrencyRateEntity(
+                            rates.baseCurrency,
+                            rates.date,
+                            rates.rates
+                        )
                     )
-                )
                 rates
             }
             false -> dao.findByBaseCurrency(baseCurrencyKey)?.mapToDomainModel()

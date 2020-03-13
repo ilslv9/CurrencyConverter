@@ -16,8 +16,9 @@ class ConvertCurrencyUseCase(private val currencyRepository: CurrencyRepository)
 
     override suspend fun run(params: ConvertCurrencyParams): Either<Failure, Double> {
         return try {
+            val response = currencyRepository.loadCurrencyRates(params.baseCurrencyKey)
             val rates =
-                currencyRepository.loadCurrencyRates(params.baseCurrencyKey)
+                response
                     ?: throw IllegalStateException("Currency not found")
             val course = rates.rates[params.convertedCurrencyKey]
                 ?: throw IllegalStateException("Course not found")

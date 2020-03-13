@@ -10,9 +10,9 @@ import ru.ilslv.currencyconverter.data.db.entity.CurrencyRateEntity
 interface CurrencyRatesDao {
 
     @Query("SELECT * FROM currency_rates WHERE baseCurrency LIKE :baseCurrency")
-    fun findByBaseCurrency(baseCurrency: String): CurrencyRateEntity?
+    suspend fun findByBaseCurrency(baseCurrency: String): CurrencyRateEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertCurrencyRate(currencyRateEntity: CurrencyRateEntity)
+    suspend fun insertCurrencyRate(currencyRateEntity: CurrencyRateEntity)
 
 }

@@ -8,13 +8,13 @@ object HashMapTypeConverter {
 
     @TypeConverter
     @JvmStatic
-    fun stringToMap(value: String?): Map<String, Double>? {
+    fun stringToMap(value: String): Map<String, Double> {
         return Gson().fromJson(value, object : TypeToken<HashMap<String, Double>>() {}.type)
     }
 
     @TypeConverter
     @JvmStatic
-    fun mapToString(value: Map<String, Double>?): String? {
-        return if (value == null) "" else Gson().toJson(value)
+    fun mapToString(value: Map<String, Double>): String {
+        return Gson().toJson(value)
     }
 }

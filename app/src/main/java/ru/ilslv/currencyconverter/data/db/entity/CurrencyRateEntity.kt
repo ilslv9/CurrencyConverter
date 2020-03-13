@@ -11,7 +11,6 @@ data class CurrencyRateEntity(
     @PrimaryKey
     val baseCurrency: String,
     val date: String,
-    @TypeConverters(HashMapTypeConverter::class)
     val rates: Map<String, Double>
 )
 
